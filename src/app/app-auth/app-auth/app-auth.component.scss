@@ -1,0 +1,27 @@
+.auth__container {
+    display: flex;
+     justify-content: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 70%;
+    max-width: 200px;
+  }
+  
+  input {
+    background: #FBEEFF;
+    border-radius: 10px;
+    outline: none;
+    padding: 0.5em 1em;
+  }
+  
+  button {
+    background: #131419;
+    color: #ffffff;
+    border: 2px solid #FBEEFF;
+    border-radius: 10px;
+    padding: 3px 7px;
+  }

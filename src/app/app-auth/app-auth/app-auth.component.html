@@ -1,0 +1,6 @@
+<form class="auth__container" action="auth"  [formGroup]="authForm">
+    <input type="text" formControlName="username">
+    <input type="password" formControlName="password">
+    <button class="ui__blue-btn" type="submit"  (click)="submit(authForm)">log in</button>
+    <button class="ui__blue-btn" type="submit"  (click)="getlist()">get list</button>
+</form>
