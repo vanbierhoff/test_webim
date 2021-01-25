@@ -1,12 +1,14 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthLogutGuard } from './guards/auth-logout.guard';
+import { AuthLogoutGuard } from './guards/auth-logout.guard';
 import { AuthGuard } from './guards/auth.guard';
+import { HttpTokenInterceptor } from './token-interceptor/htttp-token-interceptor';
 
 const routes: Routes = [
 	{
 		path: 'login',
-		canActivate: [AuthLogutGuard],
+		canActivate: [AuthLogoutGuard],
 		loadChildren: () =>
 			import('../app-auth/app-auth/app-auth.module').then(
 				m => m.AppAuthModule
@@ -29,6 +31,14 @@ const routes: Routes = [
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule],
 	declarations: [],
-	providers: [AuthGuard, AuthLogutGuard]
+	providers: [
+		AuthGuard,
+		AuthLogoutGuard,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: HttpTokenInterceptor,
+			multi: true
+		}
+	]
 })
-export class CoreRouterModule {}
+export class CoreModule {}

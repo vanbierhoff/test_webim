@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -25,8 +26,6 @@ export class AuthDataService {
 
 		const url2 =
 			'https://emphasoft-test-assignment.herokuapp.com/api/v1/users/';
-		this.http.get(url2, { headers: options }).subscribe(resp => {
-			console.log(resp);
-		});
+		this.http.get(url2, { headers: options }).subscribe(resp => resp);
 	}
 }
