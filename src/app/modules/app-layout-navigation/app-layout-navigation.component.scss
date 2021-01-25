@@ -1,0 +1,22 @@
+.navigation{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  padding: 0;
+}
+
+.navigation__link{
+  list-style-type: none;
+}
+
+.navigation__link > a {
+  color: #ffffff;
+  border-radius: 10px;
+  border: 2px solid #4447E2;
+  padding: 5px 10px;
+  text-decoration: none;
+  &:visited{
+    color: inherit;
+  }
+}
