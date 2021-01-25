@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppAuthModule } from './app-auth/app-auth/app-auth.module';
-import { CoreRouterModule } from './core/core-routing.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
 	imports: [
@@ -13,7 +13,7 @@ import { CoreRouterModule } from './core/core-routing.module';
 		AppAuthModule,
 		CommonModule,
 		HttpClientModule,
-		CoreRouterModule,
+		CoreModule,
 		RouterModule
 	],
 	declarations: [AppComponent],

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthDataService } from '../auth-service/auth-data.service';
