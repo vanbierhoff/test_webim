@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AuthData } from '../app-auth/app-auth.component';
-import { AuthDataService } from './auth-data.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthDataService } from './auth-data.service';
+import { AuthData } from '../app-auth/app-auth.component';
 
 @Injectable()
 export class AuthService {
@@ -17,7 +17,6 @@ export class AuthService {
 			.logIn(authData)
 			.pipe(
 				catchError(error => {
-					console.log('err');
 					return throwError(error);
 				})
 			)
@@ -26,7 +25,7 @@ export class AuthService {
 		this.router.navigate(['./']);
 	}
 
-	saveToken(token: string) {
-		window.localStorage.setItem('token', token);
+	saveToken(resp: any) {
+		window.localStorage.setItem('token', resp.token);
 	}
 }
