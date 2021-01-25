@@ -1,0 +1,11 @@
+
+<section class="users">
+    <input type="text" class="users__search" placeholder="search" [formControl]="search">
+    <div class="users__list" >
+        <div class="users__item" *ngFor="let user of viewList">
+            <span class="users__name">{{user.first_name}}</span>
+            <span class="users__badge">{{user.id}}</span>
+        </div>
+
+    </div>
+</section>
