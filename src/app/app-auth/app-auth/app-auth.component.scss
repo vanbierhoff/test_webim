@@ -15,6 +15,7 @@
   input {
     background: #FBEEFF;
     border-radius: 10px;
+    margin-top: 0.5rem;
     outline: none;
     padding: 0.5em 1em;
   }
@@ -26,9 +27,14 @@
     border-radius: 10px;
     padding: 3px 7px;
     outline: none;
+    margin-top: 1rem;
   }
 
   .error{
     color:#B22222;
     font-size: 1.2rem;
+  }
+
+  input.ng-touched.ng-invalid{
+    background: #CD5C5C;
   }

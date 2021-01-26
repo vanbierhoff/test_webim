@@ -34,7 +34,10 @@ export class AppAuthComponent implements OnInit {
 
 	async submit(form: FormGroup) {
 		this.error = false;
+		this.authForm.markAllAsTouched();
+		this.authForm.markAsDirty();
 		if (form.invalid) return;
+
 		const auth: AuthData = {
 			username: form.controls.username.value,
 			password: form.controls.password.value
