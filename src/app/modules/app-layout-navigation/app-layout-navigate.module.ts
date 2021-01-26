@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthLogoutGuard } from 'app/core/guards/auth-logout.guard';
 
 import { AppLayoutNavigationComponent } from './app-layout-navigation.component';
 
@@ -23,6 +24,6 @@ const router: Routes = [
 	imports: [RouterModule.forChild(router)],
 	exports: [],
 	declarations: [AppLayoutNavigationComponent],
-	providers: []
+	providers: [AuthLogoutGuard]
 })
 export class AppLayoutNavigationModule {}
