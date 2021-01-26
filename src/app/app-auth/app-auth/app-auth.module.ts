@@ -10,6 +10,7 @@ import { AuthDataService } from '../auth-service/auth-data.service';
 const routes: Routes = [
 	{
 		path: 'login',
+		canActivate: [AuthLogoutGuard],
 		component: AppAuthComponent
 	}
 ];
