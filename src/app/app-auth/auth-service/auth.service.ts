@@ -22,6 +22,7 @@ export class AuthService {
 				})
 			)
 			.toPromise();
+
 		this.saveToken(resp);
 		this.router.navigate(['./']);
 	}
