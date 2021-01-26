@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';

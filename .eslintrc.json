@@ -30,6 +30,7 @@
         "lines-between-class-members": "off",
         "no-empty-function": ["error", { "allow": ["generatorMethods", "arrowFunctions", "constructors"] }],
         "no-useless-constructor": "off",
+         "import/no-cycle": "off",
         "@typescript-eslint/unbound-method": [
             "error",
             {
