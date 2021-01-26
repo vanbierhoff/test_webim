@@ -34,3 +34,7 @@
     color:#B22222;
     font-size: 1.2rem;
   }
+
+  input.ng-touched.ng-invalid{
+    background: #CD5C5C;
+  }
