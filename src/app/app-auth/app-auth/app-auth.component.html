@@ -1,10 +1,9 @@
-<div class="auth__container">
-    <form action="auth"  [formGroup]="authForm">
+     <form action="auth"  [formGroup]="authForm">
         <input type="text" placeholder="login" formControlName="username">
         <input type="password" placeholder="password" formControlName="password">
         <span class="error" *ngIf="error"> invalid login or password</span>
         <button class="ui__blue-btn" type="submit"  (click)="submit(authForm)">log in</button>
     </form>
-</div>
+
 
   

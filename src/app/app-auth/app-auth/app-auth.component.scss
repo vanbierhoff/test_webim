@@ -1,4 +1,4 @@
-.auth__container {
+.auth {
     display: flex;
      justify-content: center;
   }
@@ -25,6 +25,7 @@
     border: 2px solid #FBEEFF;
     border-radius: 10px;
     padding: 3px 7px;
+    outline: none;
   }
 
   .error{
