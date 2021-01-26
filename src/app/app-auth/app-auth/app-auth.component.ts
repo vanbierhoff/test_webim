@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthDataService } from '../auth-service/auth-data.service';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth-service/auth.service';
 
 export interface AuthData {
@@ -18,10 +18,12 @@ export class AppAuthComponent implements OnInit {
 	constructor(
 		private fb: FormBuilder,
 		private authSerivce: AuthService,
-		private authData: AuthDataService
+		private router: Router
 	) {}
 
 	authForm: FormGroup;
+
+	error = false;
 
 	ngOnInit(): void {
 		this.authForm = this.fb.group({
@@ -30,16 +32,21 @@ export class AppAuthComponent implements OnInit {
 		});
 	}
 
-	submit(form: FormGroup) {
+	async submit(form: FormGroup) {
+		this.error = false;
 		if (form.invalid) return;
 		const auth: AuthData = {
 			username: form.controls.username.value,
 			password: form.controls.password.value
 		};
-		this.authSerivce.auth(auth);
-	}
 
-	getlist() {
-		this.authData.getUserList();
+		try {
+			await this.authSerivce.auth(auth);
+			this.router.navigate(['/']);
+		} catch (error) {
+			if (error.status === 400) {
+				this.error = true;
+			}
+		}
 	}
 }

@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-content: center;
+    margin: 2rem auto;
     width: 70%;
     max-width: 200px;
   }
@@ -24,4 +25,9 @@
     border: 2px solid #FBEEFF;
     border-radius: 10px;
     padding: 3px 7px;
+  }
+
+  .error{
+    color:#B22222;
+    font-size: 1.2rem;
   }
