@@ -5,6 +5,7 @@ import {
 	OnInit
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { User } from './services/models';
 import { UserListService } from './services/user-list.service';
@@ -15,6 +16,7 @@ import { UserListService } from './services/user-list.service';
 	styleUrls: ['./user-list.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
+@UntilDestroy()
 export class UserListComponent implements OnInit {
 	constructor(
 		private userListService: UserListService,
@@ -37,7 +39,11 @@ export class UserListComponent implements OnInit {
 		});
 
 		this.search.valueChanges
-			.pipe(debounceTime(250), distinctUntilChanged())
+			.pipe(
+				untilDestroyed(this),
+				debounceTime(250),
+				distinctUntilChanged()
+			)
 			.subscribe(searchValue => {
 				const SEARH_REGEXP = new RegExp(searchValue, 'i');
 				const viewList: User[] = [];
